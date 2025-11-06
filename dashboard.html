@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KLU Student Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background: #b71c1c;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 40px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .sidebar {
+      width: 220px;
+      background: #2f3b45;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .sidebar a:hover {
+      background: #455a64;
+    }
+    .main-content {
+      margin-left: 230px;
+      padding: 20px;
+    }
+    .cards {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #1ca6be;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="image.png" alt="KLU Logo">
+    <h1>Student Portal - ERP</h1>
+    <button onclick="logout()" style="background:#fff;color:#b71c1c;padding:8px 15px;border:none;border-radius:6px;cursor:pointer;">Logout</button>
+  </header>
+
+  <div class="sidebar">
+    <a onclick="showContent('home')">Home</a>
+    <a onclick="showContent('academic')">Academic Registration</a>
+    <a onclick="showContent('attendance')">Attendance Register</a>
+    <a onclick="showContent('courses')">Courses</a>
+    <a onclick="showContent('exams')">Exam Section</a>
+    <a onclick="showContent('assignments')">Assignments</a>
+    <a onclick="showContent('events')">Events</a>
+    <a onclick="showContent('results')">My CGPA</a>
+    <a onclick="showContent('library')">Library</a>
+    <a onclick="showContent('fees')">Fee Payments</a>
+  </div>
+
+  <div class="main-content" id="content">
+    <!-- Default Home Content -->
+    <h2>Welcome Student</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="journals.png" alt="Journal">
+        <p>Journals & Conferences</p>
+      </div>
+      <div class="card">
+        <img src="awards.png" alt="Award">
+        <p>Awards & Recognitions</p>
+      </div>
+      <div class="card">
+        <img src="conference.png" alt="Conference">
+        <p>Workshops & Guest Lectures</p>
+      </div>
+      <div class="card">
+        <img src="projects.png" alt="Projects">
+        <p>Projects & Consultancy</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      window.location.href = "login.html";
+    }
+
+    function showContent(section) {
+      let content = document.getElementById("content");
+      switch(section) {
+        case "home":
+          content.innerHTML = `
+            <h2>Welcome Student</h2>
+            <div class="cards">
+              <div class="card">
+                <img src="journals.png" alt="Journal">
+                <p>Journals & Conferences</p>
+              </div>
+              <div class="card">
+                <img src="awards.png" alt="Award">
+                <p>Awards & Recognitions</p>
+              </div>
+              <div class="card">
+                <img src="conference.png" alt="Conference">
+                <p>Workshops & Guest Lectures</p>
+              </div>
+              <div class="card">
+                <img src="projects.png" alt="Projects">
+                <p>Projects & Consultancy</p>
+              </div>
+            </div>`;
+          break;
+        case "academic":
+          content.innerHTML = "<h3>Academic Registration</h3><p>No registrations are available.</p>";
+          break;
+        case "attendance":
+          content.innerHTML = `
+            <h3>Attendance Register</h3>
+            <ul>
+              <li>Front End - 92%</li>
+              <li>Artificial Intelligence - 100%</li>
+              <li>Data Analysis and Algorithm - 100%</li>
+            </ul>`;
+          break;
+        case "courses":
+          content.innerHTML = `
+            <h3>Courses</h3>
+            <ul>
+              <li>Front End</li>
+              <li>Artificial Intelligence</li>
+              <li>Data Analysis and Algorithm</li>
+            </ul>`;
+          break;
+        case "exams":
+          content.innerHTML = "<h3>Exam Section</h3><p>No exams are ongoing.</p>";
+          break;
+        case "assignments":
+          content.innerHTML = `
+            <h3>Assignments</h3>
+            <ul>
+              <li>Front End - Create Travelling Website</li>
+              <li>Artificial Intelligence - Complete Coursera</li>
+              <li>Data Analysis and Algorithm - Complete Coursera</li>
+            </ul>`;
+          break;
+        case "events":
+          content.innerHTML = "<h3>Events</h3><p>No events at present.</p>";
+          break;
+        case "results":
+          content.innerHTML = "<h3>My CGPA</h3><p>Semester - 1 CGPA: 9.21</p>";
+          break;
+        case "library":
+          content.innerHTML = "<h3>Library</h3><p>No books are taken.</p>";
+          break;
+        case "fees":
+          content.innerHTML = "<h3>Fee Payments</h3><p>Semester 1 Fee: ₹1,45,000 (Paid)</p>";
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
